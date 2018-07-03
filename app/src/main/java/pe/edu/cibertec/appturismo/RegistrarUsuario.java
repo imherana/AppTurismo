@@ -43,7 +43,7 @@ public class RegistrarUsuario extends AppCompatActivity {
         fila=db.rawQuery("select usuario from usuarios where usuario='"+user+"",null);
         fila2=db.rawQuery("select correo from usuarios where correo='"+correo+"'",null);
 
-        if (fila.moveToFirst()|| fila2.moveToFirst())
+        //if (fila.moveToFirst()|| fila2.moveToFirst())
 
         if (!nom.isEmpty() && !apell.isEmpty() && !user.isEmpty() && !contra.isEmpty() && !correo.isEmpty() ) {
             if (remp.isChecked()== true) {
