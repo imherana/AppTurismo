@@ -2,6 +2,7 @@ package pe.edu.cibertec.appturismo;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 public class RegistrarUsuario extends AppCompatActivity {
    private EditText etnom, etapell, etuser, etcontra, etcorreo;
    private RadioButton remp, ruser;
+    private Cursor fila;
+    private Cursor fila2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,11 @@ public class RegistrarUsuario extends AppCompatActivity {
         String correo = etcorreo.getText().toString();
         ContentValues reg = new ContentValues();
         Integer cod = null;
+        fila=db.rawQuery("select usuario from usuarios where usuario='"+user+"",null);
+        fila2=db.rawQuery("select correo from usuarios where correo='"+correo+"'",null);
+
+        if (fila.moveToFirst()|| fila2.moveToFirst())
+
         if (!nom.isEmpty() && !apell.isEmpty() && !user.isEmpty() && !contra.isEmpty() && !correo.isEmpty() ) {
             if (remp.isChecked()== true) {
                 reg.put("codigo", cod);

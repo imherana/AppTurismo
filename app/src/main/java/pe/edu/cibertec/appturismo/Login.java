@@ -31,12 +31,25 @@ public class Login extends AppCompatActivity {
         String usuario = et1.getText().toString();
         String contraseña = et1.getText().toString();
 
-        fila=db.rawQuery("select usuario,contraseña from usuarios where usuario='"+usuario+"' and contraseña ='"+contraseña+"'",null);
-        if(fila.moveToFirst()){
+        fila=db.rawQuery("select usuario, contraseña, tipo_id from usuarios where usuario='"+usuario+"' and contraseña ='"+contraseña+"'",null);
+        if(fila.moveToFirst() ){
             String usu= fila.getString(0);
             String cont= fila.getString(1);
-            Intent ven=new Intent(this,userMenu.class);
-            startActivity(ven);
+            Integer tip= fila.getInt(2);
+
+            if (tip == 1){
+                Intent ven=new Intent(this,EmpreMenu.class);
+                startActivity(ven);
+            }
+            if (tip == 2){
+                Intent ven=new Intent(this,userMenu.class);
+                startActivity(ven);
+            }
+            if (tip == 3){
+                Intent ven=new Intent(this,AdminMenu.class);
+                startActivity(ven);
+            }
+
             et1.setText("");
             et2.setText("");
             db.close();
