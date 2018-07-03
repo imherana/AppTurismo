@@ -19,7 +19,8 @@
         <activity android:name=".userMenu" />
         <activity android:name=".RegistrarUsuario" />
         <activity android:name=".EmpreMenu" />
-        <activity android:name=".AdminMenu"></activity>
+        <activity android:name=".AdminMenu" />
+        <activity android:name=".Lazarooo"></activity>
     </application>
 
 </manifest>
