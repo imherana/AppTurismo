@@ -13,6 +13,7 @@ public class DBHelper  extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table tipou(tipo_id int primary key,tipo_des text)");
         db.execSQL("create table usuarios(codigo integer primary key autoincrement, nombre text, apellidos text, usuario text,contraseña text, correo text, tipo_id int references tipou)");
+        db.execSQL("create table empresas(codigo integer primary key autoincrement, nombre text, p_web text, usuario text,contraseña text, correo text, tipo_id int references tipou)");
         db.execSQL("insert into tipou values(1,'empresa')");
         db.execSQL("insert into tipou values(2,'usuario')");
         db.execSQL("insert into tipou values(3,'admin')");
