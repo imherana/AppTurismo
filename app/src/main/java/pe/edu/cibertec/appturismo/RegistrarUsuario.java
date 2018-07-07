@@ -30,7 +30,7 @@ public class RegistrarUsuario extends AppCompatActivity {
     }
 
     public void userregistrar(View v) {
-        DBHelper admin=new DBHelper(this,"Hoteleria2", null, 1);
+        DBHelper admin=new DBHelper(this,"Turismo", null, 1);
         SQLiteDatabase db=admin.getWritableDatabase();
 
         String nom = etnom.getText().toString();

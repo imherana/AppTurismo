@@ -25,7 +25,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void ingresar(View v) {
-        DBHelper admin = new DBHelper(this, "Hoteleria2", null, 1);
+        DBHelper admin = new DBHelper(this, "Turismo", null, 1);
         SQLiteDatabase db = admin.getWritableDatabase();
 
         String usuario = et1.getText().toString();
